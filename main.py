@@ -34,5 +34,5 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     table = open_file(args.file_path)
-
-    print(most_popular_artist(table))
+    print('The amount of songs for each year: ' + str(get_year_stats(table)))
+    print('The most popular artist: ' + most_popular_artist(table))
