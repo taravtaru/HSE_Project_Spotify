@@ -30,9 +30,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="our cute spotify experience")
 
     parser.add_argument("file_path", type=str, help="input path to the table")
+    parser.add_argument("-v", "--verbose", action="store_true")
+    parser.add_argument("-n", "--number", action="store_true")
 
     args = parser.parse_args()
 
     table = open_file(args.file_path)
-    print('The amount of songs for each year: ' + str(get_year_stats(table)))
-    print('The most popular artist: ' + most_popular_artist(table))
+    if args.verbose:
+        print('The amount of songs for each year: ' + str(get_year_stats(table)))
+    if args.number:
+        print('The most popular artist: ' + most_popular_artist(table))
